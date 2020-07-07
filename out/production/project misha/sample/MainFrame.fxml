@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #de957e#de957e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainFrameController">
+   <children>
+      <Label layoutX="308.0" layoutY="28.0" text="Организации" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Montserrat ExtraBold" size="38.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="102.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #ab8478#ab8478;">
+         <children>
+            <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="501.0" prefWidth="901.0" style="-fx-background-color: #ab8478#ab8478;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Организации">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="594.0" prefWidth="898.0">
+                           <children>
+                              <AnchorPane layoutX="1.0" layoutY="193.0" prefHeight="275.0" prefWidth="450.0" style="-fx-background-color: #de957e#de957e #de957e#de957e;">
+                                 <children>
+                                    <Label layoutX="36.0" layoutY="14.0" text="Номера телефона" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Montserrat ExtraBold" size="38.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="tableNumbers" layoutX="-2.0" layoutY="69.0" prefHeight="208.0" prefWidth="455.0">
+                                      <columns>
+                                        <TableColumn fx:id="TableNumbersNumber" prefWidth="190.0" text="Номер" />
+                                          <TableColumn fx:id="tableNumbersFax" text="Факс" />
+                                          <TableColumn fx:id="tableNumbersCategories" prefWidth="184.0" text="Категория" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <TableView fx:id="tableOrganizations" layoutX="-3.0" onMouseClicked="#numberRefreshEvent" prefHeight="194.0" prefWidth="902.0">
+                                <columns>
+                                  <TableColumn fx:id="tableOrganizationsName" prefWidth="99.2538332939148" text="Название" />
+                                    <TableColumn fx:id="tableOraganizationsSpecialization" prefWidth="140.24618530273438" text="Специализация" />
+                                    <TableColumn fx:id="tableOraganizationsEmail" prefWidth="75.41197204589844" text="email" />
+                                    <TableColumn fx:id="tableOraganizationsSite" prefWidth="118.84442138671875" text="Сайт" />
+                                  <TableColumn fx:id="tableOrganizationsAdress" prefWidth="99.6556396484375" text="Адрес" />
+                                    <TableColumn fx:id="tableOraganizationsWorkStart" prefWidth="126.05996704101562" text="Начало работы" />
+                                    <TableColumn fx:id="tableOrganizationsWorkEnd" prefWidth="119.81634521484375" text="Конец работы" />
+                                    <TableColumn fx:id="tableOrganizationsProperty" prefWidth="126.56756591796875" text="Собственность" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="buttonRefreshOrganizationsTable" layoutX="767.0" layoutY="422.0" mnemonicParsing="false" onAction="#buttonRefreshOrganizationsTableEvent" onMouseEntered="#buttonRefreshOrganizationsTableOnMouseEntered" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: #ab8478#ab8478 #ab8478#ab8478; -fx-border-radius: 9; -fx-border-color: #ffffff;" text="Обновить">
+                                 <font>
+                                    <Font name="Montserrat SemiBold" size="13.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="textFieldAdress" layoutX="495.0" layoutY="290.0" prefHeight="27.0" prefWidth="362.0" style="-fx-background-color: #ab8478#ab8478 #ab8478#ab8478; -fx-border-color: #ffffff; -fx-border-radius: 9;">
+                                 <font>
+                                    <Font name="Montserrat Medium" size="13.0" />
+                                 </font></TextField>
+                              <TextField fx:id="textFieldName" layoutX="495.0" layoutY="367.0" prefHeight="27.0" prefWidth="363.0" style="-fx-background-color: #ab8478#ab8478 #ab8478#ab8478; -fx-border-color: #ffffff; -fx-border-radius: 9;">
+                                 <font>
+                                    <Font name="Montserrat Medium" size="13.0" />
+                                 </font></TextField>
+                              <Button fx:id="buttonClearFields" layoutX="495.0" layoutY="422.0" mnemonicParsing="false" onAction="#buttonClearFieldsEvent" onMouseEntered="#buttonClearFieldsOnMouseEntered" style="-fx-background-color: #ab8478#ab8478 #ab8478#ab8478; -fx-border-radius: 9; -fx-border-color: #ffffff;" text="Очистить фильтры">
+                                 <font>
+                                    <Font name="Montserrat SemiBold" size="13.0" />
+                                 </font></Button>
+                              <Label layoutX="586.0" layoutY="211.0" text="Фильтры" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat ExtraBold" size="38.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="495.0" layoutY="264.0" text="Сайт:" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Medium" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="495.0" layoutY="341.0" text="Название компании:" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Medium" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Списки">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="buttonRefreshLists" layoutX="798.0" layoutY="425.0" mnemonicParsing="false" onAction="#buttonRefreshListsEvent" style="-fx-background-color: #ab8478#ab8478 #ab8478#ab8478; -fx-border-radius: 9; -fx-border-color: #ffffff;" text="Обновить">
+                                 <font>
+                                    <Font name="Montserrat SemiBold" size="13.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="67.0" layoutY="5.0" text="Специализации" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat ExtraBold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tableSpecialize" layoutY="48.0" prefHeight="350.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn fx:id="columnSpecializeName" prefWidth="192.0" text="Специализация" />
+                                  <TableColumn fx:id="columnSpecializeCount" prefWidth="207.0" text="Количество компаний" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="tableProperty" layoutX="501.0" layoutY="48.0" prefHeight="350.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn fx:id="tablePropertyName" prefWidth="201.0" text="Форма собственности" />
+                                  <TableColumn fx:id="tablePropertyNum" prefWidth="198.0" text="Количество компаний" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="511.0" layoutY="5.0" text="Формы собственности" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat ExtraBold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
